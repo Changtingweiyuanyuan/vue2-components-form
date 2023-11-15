@@ -2071,9 +2071,9 @@ autoprefixer@^10.2.4:
     postcss-value-parser "^4.2.0"
 
 axios@^1.5.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.1.tgz#76550d644bf0a2d469a01f9244db6753208397d7"
-  integrity sha512-vfBmhDpKafglh0EldBEbVuoe7DyAavGSLWhuSm5ZSEKQnHhBf0xAAwybbNH1IkrJNGnS/VG4I5yxig1pCEXE4g==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.2.tgz#de67d42c755b571d3e698df1b6504cde9b0ee9f2"
+  integrity sha512-7i24Ri4pmDRfJTR7LDBhsOTtcm+9kjX5WiY1X3wIisx6G9So3pfMkEiU7emUBe46oceVImccTEM3k6C5dbVW8A==
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"
@@ -3038,9 +3038,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.535:
-  version "1.4.582"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.582.tgz#4908215182266793499ac57d80e2680d7dd9b3db"
-  integrity sha512-89o0MGoocwYbzqUUjc+VNpeOFSOK9nIdC5wY4N+PVUarUK0MtjyTjks75AZS2bW4Kl8MdewdFsWaH0jLy+JNoA==
+  version "1.4.583"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.583.tgz#7b0ac4f36388da4b5485788adb92cd7dd0abffc4"
+  integrity sha512-93y1gcONABZ7uqYe/JWDVQP/Pj/sQSunF0HVAPdlg/pfBnOyBMLlQUxWvkqcljJg1+W6cjvPuYD+r1Th9Tn8mA==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -6723,6 +6723,22 @@ vue-types@^5.1.1:
   integrity sha512-FMY/JCLWePXgGIcMDqYdJsQm1G0CDxEjq6W0+tZMJZlX37q/61eSGSIa/XFRwa9T7kkKXuxxl94/2kgxyWQqKw==
   dependencies:
     is-plain-object "5.0.0"
+
+"vue2-components@git+ssh:git@github.com:Changtingweiyuanyuan/vue2-components.git":
+  version "0.1.0"
+  resolved "git+ssh:git@github.com:Changtingweiyuanyuan/vue2-components.git#ed901022cddc80f66c7237c7aeb79cf50d1fecb8"
+  dependencies:
+    axios "^1.5.1"
+    bootstrap "^5.3.2"
+    bootstrap-icons "^1.11.1"
+    core-js "^3.8.3"
+    lodash "^4.17.21"
+    node-sass "^9.0.0"
+    sass-loader "^13.3.2"
+    vue "^2.7.15"
+    vue-router "^3.6.5"
+    vue-types "^5.1.1"
+    vuex "^3.6.2"
 
 vue@^2.7.15:
   version "2.7.15"
