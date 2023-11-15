@@ -6736,7 +6736,7 @@ vue-types@^5.1.1:
 
 "vue2-components@git+ssh:git@github.com:Changtingweiyuanyuan/vue2-components.git":
   version "0.1.0"
-  resolved "git+ssh:git@github.com:Changtingweiyuanyuan/vue2-components.git#ed901022cddc80f66c7237c7aeb79cf50d1fecb8"
+  resolved "git+ssh:git@github.com:Changtingweiyuanyuan/vue2-components.git#cb306bb9065adaea915a1abb900e9e8621153516"
   dependencies:
     axios "^1.5.1"
     bootstrap "^5.3.2"
