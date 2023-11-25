@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="p-3">
+    <div class="px-10 py-8">
       <router-link class="router-link" to="/">FORM</router-link>
       <router-view />
     </div>
@@ -25,5 +25,6 @@ export default {
   background-size: cover;
   min-height: 100vh;
   max-height: 100%;
+  overflow: hidden;
 }
 </style>

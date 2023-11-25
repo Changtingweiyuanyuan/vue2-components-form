@@ -12,37 +12,39 @@
         <div class="page-form__name d-flex gap-3 align-items-center">
           <div class="page-form__name__title h5">姓名</div>
           <FormInput
-            v-model="form.name.firstName"
+            v-model="$v.form.name.firstName.$model"
             :placeholder="'first name'"
             :clearable="true"
             :background-transparent="true"
-            @inputValue="inputChange"
-            @inputEvent="inputEventHandler"
+            :invalid="
+              $v.form.name.firstName.$dirty && $v.form.name.firstName.$invalid
+            "
+            :invalid-text="
+              $v.form.name.firstName.required ? '長度不可超過10字' : '必填欄位'
+            "
+            :invalid-animation="true"
           />
           <FormInput
-            v-model="form.name.lastName"
+            v-model="$v.form.name.lastName.$model"
             :placeholder="'last name'"
             :clearable="true"
             :background-transparent="true"
+            :invalid="
+              $v.form.name.lastName.$dirty && $v.form.name.lastName.$invalid
+            "
+            :invalid-text="
+              $v.form.name.lastName.required ? '長度不可超過20字' : '必填欄位'
+            "
+            :invalid-animation="true"
           />
         </div>
 
         <div class="page-form__gender d-flex gap-3 align-items-start">
           <div class="page-form__gender__title h5">性別</div>
-          <FormRadio
-            v-model="form.gender"
-            value="1"
-            @change="radioChange"
-            :color="'danger'"
-          >
+          <FormRadio v-model="form.gender" value="1" :color="'danger'">
             male
           </FormRadio>
-          <FormRadio
-            v-model="form.gender"
-            value="2"
-            @change="radioChange"
-            :color="'danger'"
-          >
+          <FormRadio v-model="form.gender" value="2" :color="'danger'">
             female
           </FormRadio>
         </div>
@@ -50,10 +52,19 @@
         <div class="page-form__phone-number d-flex gap-3 align-items-center">
           <div class="page-form__phone-number__title h5">手機號碼</div>
           <FormInput
-            v-model="form.phoneNumber"
+            v-model="$v.form.phoneNumber.$model"
             :placeholder="'phone number'"
             :clearable="true"
             :background-transparent="true"
+            :invalid="
+              $v.form.phoneNumber.$dirty && $v.form.phoneNumber.$invalid
+            "
+            :invalid-text="
+              $v.form.phoneNumber.required
+                ? '必須為十碼數字且09開頭'
+                : '必填欄位'
+            "
+            :invalid-animation="true"
           />
         </div>
       </div>
@@ -76,6 +87,7 @@
         >
           <FormCheckbox
             v-model="form.language.values"
+            class="me-3"
             :value="language"
             :color="'danger'"
           >
@@ -89,10 +101,6 @@
                 .includes(String(language.value))
             "
             class="d-flex flex-wrap"
-            :class="{
-              'ms-3': language.value != form.language.options.length,
-              'ms-sm-3': language.value == form.language.options.length,
-            }"
           >
             <div
               v-if="String(language.value) === '4'"
@@ -164,8 +172,14 @@
         :select-options="form.workExperienceYears.options"
         :placeholder="'勾選工作年資'"
         :select-type="'single'"
-        :multi-value="form.workExperienceYears.values"
+        :multi-value="$v.form.workExperienceYears.values.$model"
         :color="'success'"
+        :invalid="
+          $v.form.workExperienceYears.values.$dirty &&
+          $v.form.workExperienceYears.values.$invalid
+        "
+        :invalid-text="'必填欄位'"
+        :invalid-animation="true"
         @change="workExperienceYearsDropdownChange"
       />
     </div>
@@ -178,6 +192,8 @@
         :select-type="'multiple'"
         :multi-value="form.skills.values"
         :color="'success'"
+        :checked-icon-color="'success'"
+        :max="3"
         @change="skillsDropdownChange"
       />
     </div>
@@ -210,10 +226,19 @@
       <div class="d-flex flex-wrap">
         <div class="d-flex">
           <FormInput
-            v-model="form.term.startYear"
+            v-model="$v.form.term.startYear.$model"
             class="page-form__term__start-year me-2"
             :clearable="true"
             :background-transparent="true"
+            :invalid="
+              $v.form.term.startYear.$dirty && $v.form.term.startYear.$invalid
+            "
+            :invalid-text="
+              $v.form.term.startYear.required
+                ? '必須為四碼數字(西元年份)'
+                : '必填欄位'
+            "
+            :invalid-animation="true"
           />
           <span class="page-form__term__unit t5 me-2">年</span>
           <FormDropdown
@@ -221,18 +246,34 @@
             :select-options="form.term.monthOptions"
             :placeholder="'月份'"
             :select-type="'single'"
-            :multi-value="form.term.startMonth"
+            :multi-value="$v.form.term.startMonth.$model"
             :color="'success'"
+            :invalid="
+              $v.form.term.startMonth.$dirty && $v.form.term.startMonth.$invalid
+            "
+            :invalid-text="'必填'"
+            :invalid-animation="true"
             @change="termStartMonthDropdownChange"
           />
         </div>
         <span class="t5 mx-2 page-form__term__dash">～</span>
         <div class="d-flex">
           <FormInput
-            v-model="form.term.endYear"
+            v-model="$v.form.term.endYear.$model"
             class="page-form__term__end-year me-2"
             :clearable="true"
             :background-transparent="true"
+            :invalid="
+              $v.form.term.endYear.$dirty && $v.form.term.endYear.$invalid
+            "
+            :invalid-text="
+              $v.form.term.endYear.required
+                ? $v.form.term.endYear.isValidYear
+                  ? '必須大於等於開始年份'
+                  : '必須為四碼數字(西元年份)'
+                : '必填欄位'
+            "
+            :invalid-animation="true"
           />
           <span class="page-form__term__unit t5 me-2">年</span>
           <FormDropdown
@@ -240,23 +281,33 @@
             :select-options="form.term.monthOptions"
             :placeholder="'月份'"
             :select-type="'single'"
-            :multi-value="form.term.endMonth"
+            :multi-value="$v.form.term.endMonth.$model"
             :color="'success'"
+            :invalid="
+              $v.form.term.endMonth.$dirty && $v.form.term.endMonth.$invalid
+            "
+            :invalid-text="'必填'"
+            :invalid-animation="true"
             @change="termEndMonthDropdownChange"
           />
         </div>
       </div>
     </div>
+    <div class="m-5 text-center">
+      <button class="btn btn-success" @click="submit">表單送出</button>
+    </div>
   </div>
 </template>
 
 <script>
+import { validations } from "./validations";
 import {
   FormRadio,
   FormInput,
   FormDropdown,
   FormCheckbox,
 } from "vue2-components";
+
 export default {
   name: "PageForm",
   components: {
@@ -265,6 +316,7 @@ export default {
     FormDropdown,
     FormCheckbox,
   },
+  validations,
   data() {
     return {
       form: {
@@ -292,10 +344,10 @@ export default {
             { type: "其他", value: "4" },
           ],
           levels: [
-            { type: "聽", value: "1" },
-            { type: "說", value: "2" },
-            { type: "讀", value: "3" },
-            { type: "寫", value: "4" },
+            { type: "基礎", value: "1" },
+            { type: "中級", value: "2" },
+            { type: "精通", value: "3" },
+            { type: "母語", value: "4" },
           ],
         },
         position: "1",
@@ -333,7 +385,6 @@ export default {
             { name: "其他", value: "6" },
           ],
         },
-
         term: {
           startYear: "",
           endYear: "",
@@ -358,15 +409,6 @@ export default {
     };
   },
   methods: {
-    radioChange(value) {
-      console.log("radioChange", value);
-    },
-    inputChange(inputValue) {
-      console.log("onInput value", inputValue);
-    },
-    inputEventHandler(inputEvent) {
-      console.log("onInput event", inputEvent);
-    },
     skillsDropdownChange(values) {
       if (!values) return;
       this.form.skills.values = values;
@@ -383,6 +425,9 @@ export default {
       if (!values) return;
       this.form.term.endMonth = values;
     },
+    submit() {
+      this.$v.$touch();
+    },
   },
 };
 </script>
@@ -395,7 +440,7 @@ export default {
     content: "";
     position: absolute;
     background-size: contain;
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(md) {
       display: block;
     }
   }
@@ -467,6 +512,7 @@ export default {
     > div {
       width: 160px;
       height: 160px;
+      filter: drop-shadow(2px 2px 0px #0c0c0c);
     }
   }
 }
