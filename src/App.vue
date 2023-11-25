@@ -14,13 +14,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import "vue2-components.styles/global.import.scss";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  background: $secondary-bg-subtle;
-  height: 100vh;
+  background-image: url("assets/bg.jpeg");
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 100%;
 }
 </style>

@@ -31,7 +31,7 @@ module.exports = defineConfig({
   css: {
     loaderOptions: {
       sass: {
-        additionalData: `@import "vue2-components.styles/global.import.scss";`,
+        additionalData: `@import "vue2-components.styles/global.variables.scss";`,
         // prependData: `
         // @import 'vue2-components.styles/global.variables.scss';
         // `
