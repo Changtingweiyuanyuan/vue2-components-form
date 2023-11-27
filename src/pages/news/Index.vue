@@ -63,7 +63,25 @@
             {{ jobOpportunities.imageText }}
           </div>
         </div>
-        <UtilityOrderedList :contents="jobOpportunities.options" />
+        <div
+          v-for="(company, index) in jobOpportunities.companies"
+          :key="index"
+        >
+          <div
+            v-if="index == 1"
+            class="page-news__content__block-3__image emphasis-image mt-3 ms-auto me-3"
+          >
+            <img src="@/assets/news/news-image-3-1.png" class="img-fluid" />
+          </div>
+
+          <div
+            class="t5 text-end text-decoration-underline"
+            :class="{ 'mt-3': index != 1 }"
+          >
+            {{ company.name }}
+          </div>
+          <UtilityOrderedList :contents="company.options" />
+        </div>
       </div>
     </div>
   </div>
@@ -88,9 +106,9 @@ export default {
   data() {
     return {
       headline: {
-        title: "The best skills to have on your resume",
+        title: "Entertainment Chronicle",
         superscript:
-          "New YorkCNN — Writing a good resume is a tricky balancing act.",
+          "Discover the Magic: Upcoming Disney Films, Job Opportunities, Black Friday Buzz, and Exclusive Ads",
       },
       paragraph: {
         first: {
@@ -123,28 +141,63 @@ export default {
       jobOpportunities: {
         title: "Job Opportunities with the Following Companies",
         imageText: "Career Openings Here",
-        options: [
+        companies: [
           {
-            title: "Web Developer",
-            content:
-              "Exciting role in web development, creating innovative digital experiences.",
-            url: "demo",
+            name: "DreamTech Innovations",
+            options: [
+              {
+                title: "Web Developer",
+                content:
+                  "Exciting role in web development, creating innovative digital experiences.",
+                url: "demo",
+              },
+              {
+                title: "Marketing Coordinator",
+                content:
+                  "Join our dynamic team, contribute to strategic marketing initiatives.",
+              },
+              {
+                title: "Data Analyst",
+                content:
+                  "Analyze and interpret complex data sets, drive informed business decisions.",
+                url: "demo",
+              },
+            ],
           },
           {
-            title: "Marketing Coordinator",
-            content:
-              "Join our dynamic team, contribute to strategic marketing initiatives.",
+            name: "104 Job Bank",
+            options: [
+              {
+                title: "Graphic Designer",
+                content:
+                  "Unleash your creativity, design visually stunning graphics and layouts.",
+              },
+              {
+                title: "Financial Analyst",
+                content:
+                  "Excel in financial analysis, contribute to the growth of a thriving company.",
+              },
+            ],
           },
           {
-            title: "Data Analyst",
-            content:
-              "Analyze and interpret complex data sets, drive informed business decisions.",
-            url: "demo",
+            name: "Phoenix Wellness",
+            options: [
+              {
+                title: "Wellness Coach",
+                content:
+                  "Empower others on their wellness journey, provide guidance for a healthier lifestyle.",
+              },
+            ],
           },
           {
-            title: "Graphic Designer",
-            content:
-              "Unleash your creativity, design visually stunning graphics and layouts.",
+            name: "Quantum Robotics",
+            options: [
+              {
+                title: "Robotics Engineer",
+                content:
+                  "Work on the forefront of robotics technology, designing and implementing robotic systems.",
+              },
+            ],
           },
         ],
       },
@@ -156,6 +209,7 @@ export default {
 
 <style lang="scss" scoped>
 $theme-bg: #d5ab69;
+$job-opportunities-shadow: #ffffd3;
 .page-news {
   background-image: url("assets/news/bg.png");
   background-size: 150% 120%;
@@ -179,12 +233,17 @@ $theme-bg: #d5ab69;
 
     &__block-3 {
       &__image {
+        &.emphasis-image {
+          width: 70px;
+          filter: drop-shadow(2px 2px 0px $black);
+        }
         img {
           filter: sepia(1);
         }
         .text {
           top: 50%;
           left: 50%;
+          filter: drop-shadow(1px 1px 0px $job-opportunities-shadow);
           transform: translate(-50%, -50%);
         }
       }
