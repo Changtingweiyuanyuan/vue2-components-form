@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <div class="px-10 py-8">
-      <router-link class="router-link" to="/">FORM</router-link>
+      <div class="links t5">
+        <router-link class="router-link" to="/">FORM</router-link> |
+        <router-link class="router-link" to="/news">NEWS</router-link>
+      </div>
       <router-view />
     </div>
   </div>
@@ -26,5 +29,9 @@ export default {
   min-height: 100vh;
   max-height: 100%;
   overflow: hidden;
+
+  .links {
+    margin-bottom: 60px;
+  }
 }
 </style>
