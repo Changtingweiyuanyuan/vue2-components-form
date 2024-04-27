@@ -198,7 +198,7 @@
       />
     </div>
 
-    <div class="page-form__tools d-flex align-items-start">
+    <div class="page-form__tools d-flex align-items-start mb-7 mb-sm-0">
       <div class="page-form__tools__title h5 me-3">使用工具</div>
       <div class="d-flex flex-wrap">
         <FormCheckbox
@@ -486,6 +486,10 @@ export default {
   }
 
   &__term {
+    &__title {
+      word-break: break-all;
+      min-width: 70px;
+    }
     &__dash,
     &__unit {
       line-height: 38px;
