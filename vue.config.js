@@ -38,4 +38,5 @@ module.exports = defineConfig({
       },
     },
   },
+  publicPath: "/vue2-components-form/" // 根目錄為github pages上傳的網域
 });
