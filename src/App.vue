@@ -7,7 +7,7 @@
           <router-link class="router-link text-white" to="/news">報章雜誌範例</router-link>
         </div>
       </div>
-      <div class="container">
+      <div class="main-visual container">
         <router-view />
       </div>
       <div class="footer t5 py-1 px-3 text-center text-white">
@@ -41,6 +41,10 @@ export default {
 
   .header, .footer {
     background: $gray-900;
+  }
+
+  .main-visual {
+    max-width: 936px;
   }
 }
 </style>
