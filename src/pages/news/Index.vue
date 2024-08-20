@@ -211,7 +211,7 @@ export default {
 $theme-bg: #d5ab69;
 $job-opportunities-shadow: #ffffd3;
 .page-news {
-  background-image: url("assets/news/bg.png");
+  background-image: url("assets/news/texture.png");
   background-size: 150% 120%;
   background-position: center;
   background-color: $theme-bg;

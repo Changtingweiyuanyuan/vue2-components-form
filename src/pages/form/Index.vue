@@ -445,26 +445,6 @@ export default {
     }
   }
 
-  &::before {
-    background-image: url("@/assets/vintage-coffee-1.png");
-    width: 100px;
-    height: 100px;
-    top: -50px;
-    left: 4px;
-    transform: rotate(30deg);
-    filter: drop-shadow(1px 1px 0px $black);
-  }
-
-  &::after {
-    background-image: url("@/assets/vintage-coffee-2.png");
-    width: 150px;
-    height: 150px;
-    bottom: -55px;
-    right: -64px;
-    transform: rotate(182deg);
-    filter: drop-shadow(-1px -1px 0px #0c0c0c);
-  }
-
   &__name,
   &__gender,
   &__phone-number,
@@ -499,16 +479,6 @@ export default {
   &__avatar {
     width: 160px;
     height: 160px;
-    &::after {
-      content: "";
-      width: 250px;
-      height: 250px;
-      background-image: url("@/assets/avatar-border.png");
-      background-size: contain;
-      position: absolute;
-      transform: translate(-45px, 45px);
-    }
-
     > div {
       width: 160px;
       height: 160px;
